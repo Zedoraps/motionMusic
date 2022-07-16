@@ -1,6 +1,5 @@
 import os
 import random
-import time
 
 import vlc
 
@@ -30,4 +29,11 @@ class Player:
 
     def stop(self):
         if self.player and self.player.is_playing():
+            print("stopped playing")
             self.player.stop()
+
+    def info(self):
+        if self.player:
+            return f"{self.player.get_time()} / {self.player.get_duration()}"
+        else:
+            return "No player present"

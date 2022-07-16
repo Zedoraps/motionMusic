@@ -18,8 +18,9 @@ def main():
     sensor = Motion(on_motion)
     while True:
         time.sleep(1)
-        print(f'{datetime.now().strftime("%H:%M:%S")}: {sensor.motion} end at: {stop_time.strftime("%H:%M:%S")}')
+        print(f'{datetime.now().strftime("%H:%M:%S")}: {player.info()} end at: {stop_time.strftime("%H:%M:%S")}')
         if stop_time < datetime.now():
+            print("End time reached")
             player.stop()
 
 
