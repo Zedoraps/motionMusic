@@ -18,6 +18,7 @@ class Manager:
         if self.sensor_thread is not None:
             return "Already running"
         else:
+            self.sensor.start()
             print("starting new thread for the sensing")
             sensor_thread = Thread(target=self.sens())
             sensor_thread.start()

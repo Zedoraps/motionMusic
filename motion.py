@@ -9,6 +9,7 @@ class Motion:
         self.sens = MotionSensor(4)
         self.method = method
 
+    def start(self):
         self.sens.when_motion = self.on_motion
         self.sens.when_no_motion = self.on_no_motion
 
