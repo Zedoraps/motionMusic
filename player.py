@@ -19,7 +19,7 @@ class Player:
 
     def play_or_continue_playing(self):
         if len(self.songs) > 0:
-            if self.player.is_playing():
+            if self.player and self.player.is_playing():
                 if self.counter > 10:
                     print("Reset Time to 30 Seconds")
                     self.counter = 30
