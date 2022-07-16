@@ -18,7 +18,7 @@ class Manager:
         if self.sensor_thread is not None:
             return "Already running"
         else:
-            sensor_thread = Thread(target=self.unsave_start_player())
+            sensor_thread = Thread(target=self.sens())
             sensor_thread.start()
             return 'Started'
 
