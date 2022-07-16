@@ -12,7 +12,7 @@ class Player:
         self.songs = []
         self.player = None
         for file in os.listdir(path):
-            if file.endswith('.m4a'):
+            if file.endswith('.mp3'):
                 self.songs.append(file)
         print(f"found the following songs {len(self.songs)}: {', '.join(self.songs)} ")
 
