@@ -13,7 +13,7 @@ def main():
     def on_motion():
         player.play_or_continue_playing()
         global stop_time
-        stop_time = datetime.now() + timedelta(seconds=30)
+        stop_time = datetime.now() + timedelta(seconds=10)
 
     sensor = Motion(on_motion)
     while True:
