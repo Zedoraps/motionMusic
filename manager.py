@@ -18,6 +18,7 @@ class Manager:
         if self.sensor_thread is not None:
             return "Already running"
         else:
+            print("starting new thread for the sensing")
             sensor_thread = Thread(target=self.sens())
             sensor_thread.start()
             return 'Started'
@@ -34,3 +35,6 @@ class Manager:
             if self.stop_time < datetime.now():
                 print("End time reached")
                 self.player.stop()
+
+    def stop(self):
+        self.player.stop()

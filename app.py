@@ -4,11 +4,12 @@ from manager import Manager
 
 app = Flask(__name__)
 manager = Manager()
+manager.start_player()
 
 
-@app.route('/start')
+@app.route('/stop')
 def index():
-    return manager.start_player()
+    return manager.stop()
 
 
 def main():
