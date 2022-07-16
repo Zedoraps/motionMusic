@@ -1,12 +1,13 @@
-from flask import Flask
+from datetime import datetime
 
-app = Flask(__name__)
-
-
-@app.route('/')
-def hello_world():  # put application's code here
-    return 'Hello World!'
+from motion import Motion
 
 
-if __name__ == '__main__':
-    app.run()
+def main():
+    sensor = Motion()
+    while True:
+        print(f'{datetime.now().strftime("%H:%M:%S")}: {sensor.motion}')
+
+
+if __name__ == "__main__":
+    main()
