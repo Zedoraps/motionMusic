@@ -1,13 +1,29 @@
 import time
 from datetime import datetime, timedelta
 
+from flask import Flask
+
 from motion import Motion
 from player import Player
+
+app = Flask(__name__)
+
+
+@app.route('/')
+def index():
+    start_player()
+    return 'Index Page'
+
 
 stop_time = datetime.now()
 
 
 def main():
+    app.run()
+    start_player()
+
+
+def start_player():
     player = Player("/home/croc/Desktop/croc/songs")
 
     def on_motion():
