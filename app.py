@@ -9,7 +9,7 @@ def main():
     player = Player("/home/croc/Desktop/croc/songs")
 
     def on_motion():
-        player.play_if_not_already_playing()
+        player.play_or_continue_playing()
 
     sensor = Motion(on_motion)
     while True:
