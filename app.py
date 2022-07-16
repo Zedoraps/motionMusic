@@ -2,13 +2,15 @@ import time
 from datetime import datetime
 
 from motion import Motion
-
-
-def on_motion():
-    print("Would start playing now!")
+from player import Player
 
 
 def main():
+    player = Player("/home/croc/Desktop/croc/songs")
+
+    def on_motion():
+        player.play_if_not_already_playing()
+
     sensor = Motion(on_motion)
     while True:
         time.sleep(1)
