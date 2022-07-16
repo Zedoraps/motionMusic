@@ -34,6 +34,6 @@ class Player:
 
     def info(self):
         if self.player:
-            return f"{self.player.get_time()} / {self.player.get_duration()}"
+            return f"{self.player.get_time() / 1000} / {self.player.get_length() / 1000}"
         else:
             return "No player present"
