@@ -8,7 +8,7 @@ stop_time = datetime.now()
 
 
 def main():
-    player = Player("../songs")
+    player = Player("/home/croc/Desktop/croc/songs")
 
     def on_motion():
         player.play_or_continue_playing()

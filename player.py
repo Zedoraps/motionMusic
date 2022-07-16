@@ -12,7 +12,7 @@ class Player:
         self.songs = []
         self.player = None
         for file in os.listdir(path):
-            if file.endswith('.mp3'):
+            if file.endswith('.m4a'):
                 self.songs.append(file)
         print(f"found the following songs {len(self.songs)}: {', '.join(self.songs)} ")
 
@@ -23,7 +23,7 @@ class Player:
             else:
                 index = random.randint(0, len(self.songs) - 1)
                 print(f"start playing: {self.path}/{self.songs[index]}")
-                self.player = vlc.MediaPlayer(f"{self.path}/{self.songs[index]}")
+                self.player = vlc.MediaPlayer(f"file://{self.path}/{self.songs[index]}")
                 self.player.play()
         else:
             print("No songs to play!")
