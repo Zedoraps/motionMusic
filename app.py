@@ -1,3 +1,4 @@
+import time
 from datetime import datetime
 
 from motion import Motion
@@ -6,6 +7,7 @@ from motion import Motion
 def main():
     sensor = Motion()
     while True:
+        time.sleep(1)
         print(f'{datetime.now().strftime("%H:%M:%S")}: {sensor.motion}')
 
 
