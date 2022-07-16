@@ -8,7 +8,7 @@ stop_time = datetime.now()
 
 
 def main():
-    player = Player("/home/croc/Desktop/croc/songs")
+    player = Player("../songs")
 
     def on_motion():
         player.play_or_continue_playing()
@@ -18,7 +18,7 @@ def main():
     sensor = Motion(on_motion)
     while True:
         time.sleep(1)
-        print(f'{datetime.now().strftime("%H:%M:%S")}: {sensor.motion}')
+        print(f'{datetime.now().strftime("%H:%M:%S")}: {sensor.motion} end at: {stop_time.strftime("%H:%M:%S")}')
         if stop_time < datetime.now():
             player.stop()
 
