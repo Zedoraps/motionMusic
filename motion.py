@@ -13,9 +13,9 @@ class Motion:
         self.sens.when_no_motion = self.on_no_motion
 
     def on_motion(self):
-        self.method()
         self.motion = True
         print(f'{datetime.now().strftime("%H:%M:%S")}: Motion Detected')
+        self.method()
 
     def on_no_motion(self):
         self.motion = False
