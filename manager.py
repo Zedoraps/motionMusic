@@ -36,13 +36,15 @@ class Manager:
         while True:
             time.sleep(1)
             print(
-                f'{datetime.now().strftime("%H:%M:%S")}: {self.player.info()} end at: {self.stop_time.strftime("%H:%M:%S")}')
+                f'{datetime.now().strftime("%H:%M:%S")}: {self.player.info()} | end: {self.stop_time.strftime("%H:%M:%S")}')
             if self.stop_time < datetime.now():
                 self.player.stop()
 
     def stop(self):
+        print("stop")
         self.off = True
         self.player.stop()
 
     def restart(self):
+        print("restarting")
         self.off = False
