@@ -8,7 +8,8 @@ manager.start_player()
 
 
 @app.route('/status')
-def stop():
+def status():
+    print("status called")
     return manager.status()
 
 
