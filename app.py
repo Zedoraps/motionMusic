@@ -12,7 +12,7 @@ def stop():
     return manager.stop()
 
 
-@app.route('/star🚁')
+@app.route('/star')
 def start():
     return manager.stop()
 

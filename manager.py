@@ -38,7 +38,6 @@ class Manager:
             print(
                 f'{datetime.now().strftime("%H:%M:%S")}: {self.player.info()} end at: {self.stop_time.strftime("%H:%M:%S")}')
             if self.stop_time < datetime.now():
-                print("End time reached")
                 self.player.stop()
 
     def stop(self):
