@@ -43,7 +43,7 @@ class Player:
 
     def info(self):
         if self.player:
-            return PlayerInfo(name=self.player.name(), playing=self.player.is_playing, time=self.player.get_time(),
+            return PlayerInfo(name=self.player.video_get_title_description(), playing=self.player.is_playing, time=self.player.get_time(),
                               length=self.player.get_length())
         else:
             return None
