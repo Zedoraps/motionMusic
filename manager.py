@@ -1,14 +1,13 @@
 import time
+from dataclasses import dataclass
 from datetime import datetime, timedelta
 from threading import Thread
 
 from motion import Motion
 from player import Player
 
-
 class Manager:
     sensor_thread = None
-    off = False
 
     def __init__(self):
         self.stop_time = datetime.now()
@@ -26,11 +25,8 @@ class Manager:
             return 'Started'
 
     def on_motion(self):
-        if not self.off:
-            self.player.play_or_continue_playing()
-            self.stop_time = datetime.now() + timedelta(seconds=10)
-        else:
-            print("Not starting because it has stopped")
+        self.player.play_or_continue_playing()
+        self.stop_time = datetime.now() + timedelta(seconds=10)
 
     def sens(self):
         while True:
@@ -40,11 +36,5 @@ class Manager:
             if self.stop_time < datetime.now():
                 self.player.stop()
 
-    def stop(self):
-        print("stop")
-        self.off = True
-        self.player.stop()
-
-    def restart(self):
-        print("restarting")
-        self.off = False
+    def status(self):
+        return self.player.info()

@@ -1,7 +1,16 @@
 import os
 import random
+from dataclasses import dataclass
 
 import vlc
+
+
+@dataclass
+class PlayerInfo:
+    playing: bool
+    time: int
+    length: int
+    name: str
 
 
 class Player:
@@ -34,6 +43,7 @@ class Player:
 
     def info(self):
         if self.player:
-            return f"{self.player.get_time() / 1000} / {self.player.get_length() / 1000}"
+            return PlayerInfo(name=self.player.name(), playing=self.player.is_playing, time=self.player.get_time(),
+                              length=self.player.get_length())
         else:
-            return "No player present"
+            return None

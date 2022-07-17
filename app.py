@@ -7,14 +7,9 @@ manager = Manager()
 manager.start_player()
 
 
-@app.route('/stop')
+@app.route('/status')
 def stop():
-    return manager.stop()
-
-
-@app.route('/star')
-def start():
-    return manager.stop()
+    return manager.status()
 
 
 def main():
