@@ -8,6 +8,7 @@ from player import Player
 
 class Manager:
     sensor_thread = None
+    off = False
 
     def __init__(self):
         self.stop_time = datetime.now()
@@ -25,8 +26,11 @@ class Manager:
             return 'Started'
 
     def on_motion(self):
-        self.player.play_or_continue_playing()
-        self.stop_time = datetime.now() + timedelta(seconds=10)
+        if not self.off:
+            self.player.play_or_continue_playing()
+            self.stop_time = datetime.now() + timedelta(seconds=10)
+        else:
+            print("Not starting because it has stopped")
 
     def sens(self):
         while True:
@@ -38,4 +42,8 @@ class Manager:
                 self.player.stop()
 
     def stop(self):
+        self.off = True
         self.player.stop()
+
+    def restart(self):
+        self.off = False
